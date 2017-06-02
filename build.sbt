@@ -10,7 +10,7 @@ import com.typesafe.sbt.pgp.PgpKeys._
 
 name := "discipline root project"
 
-crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.2")
+crossScalaVersions := Seq("2.10.6", "2.11.11", "2.12.2", "2.13.0-M1")
 
 lazy val commonSettings = releaseSettings ++ Seq(
   organization := "org.typelevel",
@@ -23,7 +23,7 @@ lazy val commonSettings = releaseSettings ++ Seq(
   ),
   libraryDependencies ++= Seq(
     "org.scalacheck" %%% "scalacheck" % "1.13.5",
-    "org.scalatest"  %%% "scalatest"  % "3.0.1" % "optional"
+    "org.scalatest"  %%% "scalatest"  % "3.0.3" % "optional"
   ),
   resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases",
   scalacOptions in Test ++= Seq("-Yrangepos"),
@@ -94,7 +94,7 @@ lazy val root = project.in(file("."))
 lazy val discipline = crossProject.in(file("."))
   .settings(commonSettings: _*)
   .jvmSettings(
-    specs2Version := "3.8.9",
+    specs2Version := "3.9.0",
     libraryDependencies ++= Seq(  
       "org.specs2" %% "specs2-core"       % specs2Version.value % "optional",
       "org.specs2" %% "specs2-scalacheck" % specs2Version.value % "optional"
